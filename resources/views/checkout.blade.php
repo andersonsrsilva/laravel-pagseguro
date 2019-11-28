@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('default')
 
 @section('content')
     <h2 class="header">Checkout</h2>
@@ -14,7 +14,7 @@
 
         <input type="hidden" name="itemId1" value="0001">
         <input type="hidden" name="itemDescription1" value="Produto PagSeguroI">
-        <input type="hidden" name="itemAmount1" value="5.00">
+        <input type="hidden" name="itemAmount1" value="50.00">
         <input type="hidden" name="itemQuantity1" value="1">
         <input type="hidden" name="senderHash" id="senderHash">
         <input type="hidden" name="shippingCost" value="0.00">
@@ -100,7 +100,7 @@
         </div>
     </form>
 
-    {{-- <div id="payment_methods" class="center-align"></div> --}}
+    <div id="payment_methods" class="center-align"></div>
 @endsection
 
 @section('script')
@@ -159,7 +159,7 @@
                 .then(function(res) {
                     let html = '';
                     res.forEach(function (item) {
-                        html += '<option value="' + item.quantity + '">' + item.quantity + 'x R$' + item.installmentAmount + ' - total R$' + item.totalAmount + '</option>'
+                        html += '<option value="' + item.quantity + '">' + item.quantity + 'x R$' + item.installmentAmount + ' - Total: R$' + item.totalAmount + '</option>'
                     });
                     $('#installmentQuantity').html(html);
                     $('#installmentValue').val(res[0].installmentAmount);

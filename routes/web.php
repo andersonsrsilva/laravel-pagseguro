@@ -31,9 +31,9 @@ Route::get('/checkout/{id}', function ($id) {
     $session = new \SimpleXMLElement($response->getContents());
     $session = $session->id;
 
-    $amount = number_format(5.00, 2, '.', '');
+    $amount = number_format(50.00, 2, '.', '');
 
-    return view('store.checkout', compact('id', 'session', 'amount'));
+    return view('checkout', compact('id', 'session', 'amount'));
 });
 
 Route::post('/checkout/{id}', function ($id) {
